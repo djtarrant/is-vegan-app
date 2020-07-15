@@ -9,4 +9,4 @@ const Alert = ({alert}) => {
     )
 }
 
-export default Caveats;
+export default Alert;
