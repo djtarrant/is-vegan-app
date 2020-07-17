@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../index.css';
-import Caveats from './components/Caveats'
+import Caveats from '../components/Caveats'
 
 const Food = ({food}) => {
     const [show, setShow] = useState(false);
@@ -14,3 +14,5 @@ const Food = ({food}) => {
         </div>
     )
 }
+
+export default Food;

@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import IsVegan from './components/IsVegan'
 
 function App() {
   return (
     <div className="App">
       <h1>Is Vegan App</h1>
-      <isVegan></IsVegan>
+      <IsVegan></IsVegan>
     </div>
   );
 }

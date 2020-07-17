@@ -1,18 +1,19 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
 import '../index.css';
-import Food from './components/Food'
-import Alert from './components/Alert'
+import Food from '../components/Food'
+import Alert from '../components/Alert'
 
-const url = `http://localhost:5000/isVegan/${query}`;
+
 
 // functional component
 const IsVegan = () => {
-    
+
     //React hook for setting state
     const [query, setQuery] = useState("");
     const [data, setData] = useState([]);
     const [alert, setAlert] = useState("");
+    const url = `http://localhost:5000/isVegan/${query}`;
 
     const getData = async () =>{
         if(query!==""){
