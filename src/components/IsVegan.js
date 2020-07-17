@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
 import '../index.css';
-import Food from '../components/Food'
-import Alert from '../components/Alert'
+import Food from './Food'
+import Alert from './Alert'
 
 
 
