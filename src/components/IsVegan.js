@@ -18,12 +18,12 @@ const IsVegan = () => {
     const getData = async () =>{
         if(query!==""){
             const result = await Axios.get(url);
-            if(!result.data.id){
+            if(result.data.foodItems===[]){
                 return setAlert("No food with such name");
             }
             console.log(result);
             // use the hooks to set state
-            setData(result.data); //JSON output from the API
+            setData(result.data.foodItems); //JSON output from the API
             setQuery(""); // reset the search term
             setAlert(""); // reset the alert
         }else{

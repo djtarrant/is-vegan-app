@@ -8,7 +8,7 @@ const Food = ({food}) => {
     return (
         <div>
             <h2>{name}</h2>
-            Is it vegan? {isVegan}
+            Is it vegan? {isVegan? 'Yes':'No'} <br/>
             <button onClick={()=>setShow(!show)}>Caveats</button>
             {show && <Caveats caveats={caveats} />} 
         </div>
