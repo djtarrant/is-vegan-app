@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
 import '../index.css';
-import Food from './Food'
+import FoodRow from './FoodRow'
 import Alert from './Alert'
 
 
@@ -50,12 +50,22 @@ const IsVegan = () => {
                 {alert!=="" && <Alert alert={alert} />} 
             </form>
             <div>
+            <h2>List Foods</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Is Vegan?</th>
+                    <th>Caveats</th>
+                    <th>Manage</th>
+                </tr>
                 {
                     // if data is not empty execute the map function
                     data !== [] && data.map(food =>
-                        <Food key={food.id} food={food} />
+                        <FoodRow key={food.id} food={food} />
                     )
                 }
+                </table>
             </div>
         </div>
     )
