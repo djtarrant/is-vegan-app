@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import IsVegan from './components/IsVegan'
+import FoodItem from './components/FoodItem'
+import Category from './components/Category'
 
 function App() {
   return (
