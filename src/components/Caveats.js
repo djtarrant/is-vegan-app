@@ -3,7 +3,7 @@ import '../index.css';
 
 const Caveats = ({caveats}) => {
     return (
-        <div className={caveats}>
+        <div className="caveats">
             {caveats}
         </div>
     )
