@@ -22,7 +22,7 @@ const FoodItemAdd = () => {
                         <input type = "text" name = "name" id = "name"></input>
                         <label>Category</label>
                         <input type = "text" name = "category" id = "category"></input>
-                        <label>Name</label>
+                        <label>Vegan?</label>
                         <select name = "isVegan" id = "isVegan">
                             <option value = "1">Yes</option>
                             <option value = "0">No</option>
