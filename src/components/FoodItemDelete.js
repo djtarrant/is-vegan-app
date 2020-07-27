@@ -8,8 +8,11 @@ import '../index.css';
 const FoodItemDelete = () => {
     
     
+    const deleteFood = () =>{
+    }
+    
     return (
-        <div>FoodItemDelete</div>
+        <div><button onClick={deleteFood}>Delete Food</button></div>
     )
 }
 
