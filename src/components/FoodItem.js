@@ -37,27 +37,32 @@ const FoodItem = () => {
             <h1>Food Item</h1>
             <button onClick={getData}>Get Food Data</button><br/>
             <FoodItemAdd />
-            
-            <h2>List Foods</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Is Vegan?</th>
-                        <th>Manage</th>
-                        <th>Caveats</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {
-                    // if data is not empty execute the map function
-                    data !== [] && data.map(food =>
-                        <FoodRow key={food.id} food={food} />
-                    )
-                }
-                </tbody>
-            </table>
+            {
+                    // if data is not empty show the table
+                    data !== [] && 
+                        (<div>
+                            <h2>List Foods</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Is Vegan?</th>
+                                        <th>Manage</th>
+                                        <th>Caveats</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {
+                                    // if data is not empty execute the map function
+                                    data !== [] && data.map(food =>
+                                        <FoodRow key={food.id} food={food} />
+                                    )
+                                }
+                                </tbody>
+                            </table>
+                        </div>)
+            }
         </div>
     )
 }
