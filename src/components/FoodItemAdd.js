@@ -8,13 +8,13 @@ import '../index.css';
 const FoodItemAdd = () => {
     const [addFoodShow, setAddFoodShow] = useState(false); //to show the add food form
 
-    const addFood = () =>{
+    const showForm = () =>{
         setAddFoodShow(!addFoodShow);
     }
     
     return (
         <div>
-            <button onClick={addFood}>Add Food</button>
+            <button onClick={showForm}>Add Food</button>
             {addFoodShow && (
                 <div>
                     <form>
