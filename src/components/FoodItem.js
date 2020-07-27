@@ -1,37 +1,61 @@
-import React, {useState} from 'react';
-import Axios from 'axios';
+import React, {useState, useEffect} from 'react';
 import '../index.css';
 import FoodItemAdd from './FoodItemAdd';
-
+import FoodRow from './FoodRow';
 
 
 
 // functional component
 const FoodItem = () => {
-    
-    
-    // TODO - get the foodList
+    const [data, setData] = useState([]); //functional component hook
     const url = `http://localhost:5000/foodItem/`;
+
+    useEffect(() => {
+        
+    })
     
+    const getData = () => {
+        console.log(url);
+        fetch(url)
+        .then((response) => {
+            // Add this check and throw an error if it fails
+            //console.log(response);
+            if (!response.ok) {
+                throw Error(`There was an error: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response);
+            setData(response.foodItems); //JSON output from the API
+        })
+        .catch((error) => console.log(error));
+    }
+
     return (
         <div>
             <h1>Food Item</h1>
             <FoodItemAdd />
+            <button onClick={getData}>Get Food Data</button>
             <h2>List Foods</h2>
             <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Is Vegan?</th>
-                    <th>Caveats</th>
-                    <th>Manage</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Is Vegan?</th>
+                        <th>Caveats</th>
+                        <th>Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
                 {
                     // if data is not empty execute the map function
-                    //data !== [] && data.map(food =>
-                        //<FoodRow key={food.id} food={food} />
-                    //)
+                    data !== [] && data.map(food =>
+                        <FoodRow key={food.id} food={food} />
+                    )
                 }
+                </tbody>
             </table>
         </div>
     )

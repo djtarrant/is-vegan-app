@@ -7,9 +7,12 @@ import '../index.css';
 // functional component
 const FoodItemAdd = () => {
     
+    const addFood = () =>{
+        alert("Add food");
+    }
     
     return (
-        <div>FoodItemAdd</div>
+        <div><button onClick={addFood}>Add Food</button></div>
     )
 }
 
