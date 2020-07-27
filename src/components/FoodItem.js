@@ -35,8 +35,9 @@ const FoodItem = () => {
     return (
         <div>
             <h1>Food Item</h1>
+            <button onClick={getData}>Get Food Data</button><br/>
             <FoodItemAdd />
-            <button onClick={getData}>Get Food Data</button>
+            
             <h2>List Foods</h2>
             <table>
                 <thead>
@@ -44,8 +45,8 @@ const FoodItem = () => {
                         <th>Name</th>
                         <th>Category</th>
                         <th>Is Vegan?</th>
-                        <th>Caveats</th>
                         <th>Manage</th>
+                        <th>Caveats</th>
                     </tr>
                 </thead>
                 <tbody>

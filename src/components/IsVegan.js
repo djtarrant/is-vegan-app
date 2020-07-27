@@ -62,8 +62,8 @@ const IsVegan = () => {
                             <th>Name</th>
                             <th>Category</th>
                             <th>Is Vegan?</th>
-                            <th>Caveats</th>
                             <th>Manage</th>
+                            <th>Caveats</th>
                         </tr>
                     </thead>
                     <tbody>

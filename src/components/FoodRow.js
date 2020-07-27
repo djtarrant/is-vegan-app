@@ -12,13 +12,13 @@ const FoodRow = ({food}) => {
             <td>{name}</td>
             <td>{categoryId}</td>
             <td>{isVegan? 'Yes':'No'}</td>
-            <td>    
-                <button onClick={()=>setShow(!show)}>Caveats</button>
-                {show && <Caveats caveats={caveats} />}
-            </td>
             <td>
                 <FoodItemEdit food={food} />
                 <FoodItemDelete food={food} />
+            </td>
+            <td>    
+                <button onClick={()=>setShow(!show)}>Caveats</button>
+                {show && <Caveats caveats={caveats} />}
             </td> 
         </tr>
     )
