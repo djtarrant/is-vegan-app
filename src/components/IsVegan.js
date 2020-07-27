@@ -49,24 +49,36 @@ const IsVegan = () => {
                 <input type = "submit" value = "Check if it is Vegan" /> 
                 {alert!=="" && <Alert alert={alert} />} 
             </form>
+            
+            
+            {
+            data !== [] &&  // if data is not empty, display the table
+            (
             <div>
-            <h2>List Foods</h2>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Is Vegan?</th>
-                    <th>Caveats</th>
-                    <th>Manage</th>
-                </tr>
-                {
-                    // if data is not empty execute the map function
-                    data !== [] && data.map(food =>
-                        <FoodRow key={food.id} food={food} />
-                    )
-                }
+                <h2>List Foods</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Is Vegan?</th>
+                            <th>Caveats</th>
+                            <th>Manage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        // if data is not empty execute the map function
+                        data !== [] && data.map(food =>
+                            <FoodRow key={food.id} food={food} />
+                        )
+                    }
+                    </tbody>
                 </table>
             </div>
+            )
+            }
+            
         </div>
     )
 }

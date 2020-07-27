@@ -22,3 +22,12 @@ code {
   border-radius: 5px;
   padding: 1em;
 }
+
+.nav{
+  display: flex;
+}
+
+.nav li{
+  list-style: none;
+  margin-right: 1em;
+}
