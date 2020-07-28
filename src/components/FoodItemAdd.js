@@ -5,8 +5,8 @@ import '../index.css';
 
 
 // functional component
-const FoodItemAdd = () => {
-    const url = `http://localhost:5000/foodItem/`;
+const FoodItemAdd = (url) => {
+
     const [addFoodShow, setAddFoodShow] = useState(false); //to show the add food form
     const [name, setName] = useState("");
     const [isVegan, setIsVegan] = useState("");
@@ -27,6 +27,7 @@ const FoodItemAdd = () => {
         setCaveats(e.target.value);
     }
     const addFood = () =>{
+        console.log(url);
         Axios.post(url,{
             name: name,
             isVegan: isVegan,
