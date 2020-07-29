@@ -4,7 +4,7 @@ import Caveats from './Caveats';
 import FoodItemEdit from './FoodItemEdit';
 import FoodItemDelete from './FoodItemDelete';
 
-const FoodRow = ({food}) => {
+const FoodRow = ({food}, url) => {
     const [show, setShow] = useState(false);
     const { name, isVegan, caveats, categoryId } = food;
     return (
@@ -13,8 +13,8 @@ const FoodRow = ({food}) => {
             <td>{categoryId}</td>
             <td>{isVegan? 'Yes':'No'}</td>
             <td>
-                <FoodItemEdit food={food} />
-                <FoodItemDelete food={food} />
+                <FoodItemEdit food={food} url={url} />
+                <FoodItemDelete food={food} url={url} />
             </td>
             <td>    
                 <button onClick={()=>setShow(!show)}>Caveats</button>

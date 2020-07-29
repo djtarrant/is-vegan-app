@@ -6,6 +6,7 @@ import '../index.css';
 
 // functional component
 const FoodItemAdd = () => {
+    //TODO - need to put this in a central place and pass via props - but doesn't work in Axios?
     const url = `http://localhost:5000/foodItem/`;
     const [addFoodShow, setAddFoodShow] = useState(false); //to show the add food form
     const [name, setName] = useState("");
