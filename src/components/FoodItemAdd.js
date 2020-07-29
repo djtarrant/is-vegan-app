@@ -5,8 +5,8 @@ import '../index.css';
 
 
 // functional component
-const FoodItemAdd = (url) => {
-
+const FoodItemAdd = () => {
+    const url = `http://localhost:5000/foodItem/`;
     const [addFoodShow, setAddFoodShow] = useState(false); //to show the add food form
     const [name, setName] = useState("");
     const [isVegan, setIsVegan] = useState("");
@@ -21,20 +21,32 @@ const FoodItemAdd = (url) => {
         setName(e.target.value);
     }
     const changeIsVegan = (e) =>{
-        setIsVegan(e.target.selected);
+        const isVegan = e.target.value? true: false;
+        setIsVegan(isVegan);
     }
     const changeCaveats = (e) =>{
         setCaveats(e.target.value);
     }
-    const addFood = () =>{
-        console.log(url);
-        Axios.post(url,{
-            name: name,
-            isVegan: isVegan,
-            caveats: caveats
-        }).then((response) =>{
-            console.log(response);
-        })        
+    const addFood = async (e) =>{
+        e.preventDefault();
+        var params = {
+            "name":name, 
+            "isVegan":isVegan, 
+            "caveats":caveats, 
+            "categoryId":"1", 
+            "isApprovedItem":true, 
+            "isApprovedData":true
+        };
+        try{
+            console.log('Firing request...');
+            console.log(url);
+            const result = await Axios.post(url, params);
+            console.log('Getting response...');
+            console.log(result);
+        } 
+        catch(error){
+            console.log(error);
+        }        
     }
     
     return (
@@ -42,7 +54,7 @@ const FoodItemAdd = (url) => {
             <button onClick={showForm}>Add Food</button>
             {addFoodShow && (
                 <div>
-                    <form>
+                    <form onSubmit={addFood}>
                         <label>Name</label>
                         <input type = "text" name = "name" id = "name" value={name} onChange={changeName}></input>
                         <label>Category</label>
@@ -54,7 +66,7 @@ const FoodItemAdd = (url) => {
                         </select>
                         <label>Caveats</label>
                         <input type = "text" name = "caveats" id = "caveats"  value={caveats} onChange={changeCaveats}></input>
-                        <button onSubmit={addFood}>Add</button>
+                        <button>Add</button>
                     </form>    
                 </div>
             )}
