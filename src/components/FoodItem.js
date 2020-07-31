@@ -36,7 +36,7 @@ const FoodItem = () => {
         <div>
             <h1>Food Item</h1>
             <button onClick={getData}>Get Food Data</button><br/>
-            <FoodItemAdd url={url} />
+            <FoodItemAdd url={url} refreshList={getData} />
             {
                     // if data is not empty show the table
                     data !== [] && 
