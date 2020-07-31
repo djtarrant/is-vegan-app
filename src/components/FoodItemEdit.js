@@ -9,32 +9,69 @@ const FoodItemEdit = ({food}) => {
         //TODO - need to put this in a central place and pass via props - but doesn't work in Axios?
         const url = `http://localhost:5000/foodItem/${food.id}`;
         const [editFoodShow, setEditFoodShow] = useState(false); //to show the add food form
-        const [name, setName] = useState(food.name);
-        const [isVegan, setIsVegan] = useState(food.isVegan);
-        const [caveats, setCaveats] = useState(food.caveats); 
-    
+        let NumericIsVegan = null;
+        let BooleanIsVegan = food.isVegan;
+        if(food.isVegan===true){
+            NumericIsVegan=1;
+            console.log('here1 initial');
+        }else{
+            NumericIsVegan=0;
+            console.log('here2 initial');
+        }
+        const [isVegan, setIsVegan] = useState(NumericIsVegan);
+        console.log('isVegan:',typeof(isVegan), isVegan);
+
+        //const [name, setName] = useState(food.name);
+        //const [categoryId, setCategoryId] = useState(food.categoryId);
+        //const [caveats, setCaveats] = useState(food.caveats);
+        const [state, setState] = useState({
+            name: food.name,
+            categoryId: food.categoryId,
+            caveats: food.caveats
+        })
+
         const showForm = () =>{
             setEditFoodShow(!editFoodShow);
         }
+        const changeIsVegan = (e) =>{
+            //select boxes only store numbers or strings in jsx
+            setIsVegan(parseInt(e.target.value));
+        }
     
-        // TODO need to work out how to consolidate these functions
+        function handleChange(e){
+            const value = e.target.value;
+            setState({
+                ...state, //spreading - merging original state to new one
+                [e.target.name]: value
+            })
+        }
+        /*
         const changeName = (e) =>{
             setName(e.target.value);
-        }
-        const changeIsVegan = (e) =>{
-            const isVegan = e.target.value? true: false;
-            setIsVegan(isVegan);
         }
         const changeCaveats = (e) =>{
             setCaveats(e.target.value);
         }
+        const changeCategoryId = (e) =>{
+            setCategoryId(e.target.value);
+        }
+        */
+
         const editFood = async (e) =>{
             e.preventDefault();
+            if(isVegan===1){
+                BooleanIsVegan=true;
+                console.log('here1');
+            }else{
+                BooleanIsVegan=false;
+                console.log('here2');
+            }
+            console.log('Firing:',typeof(BooleanIsVegan),BooleanIsVegan);
             var params = {
-                "name":name, 
-                "isVegan":isVegan, 
-                "caveats":caveats, 
-                "categoryId":"1", 
+                "name":state.name, 
+                "isVegan":BooleanIsVegan, 
+                "caveats":state.caveats, 
+                "categoryId":state.categoryId, 
                 "isApprovedItem":true, 
                 "isApprovedData":true
             };
@@ -57,17 +94,17 @@ const FoodItemEdit = ({food}) => {
                 {editFoodShow && (
                     <div>
                         <form onSubmit={editFood}>
-                            <label>Name</label><br/>
-                            <input type = "text" name = "name" id = "name" value={name} onChange={changeName}></input><br/>
-                            <label>Category</label><br/>
-                            <input type = "text" name = "category" id = "category"></input><br/>
-                            <label>Vegan?</label><br/>
+                            <label htmlFor='name'>Name</label><br/>
+                            <input type = "text" name = "name" id = "name" value={state.name} onChange={handleChange}></input><br/>
+                            <label htmlFor='categoryId'>Category</label><br/>
+                            <input type = "text" name = "categoryId" id = "categoryId" value={state.categoryId} onChange={handleChange}></input><br/>
+                            <label htmlFor='isVegan'>Vegan?</label><br/>
                             <select name = "isVegan" id = "isVegan" value={isVegan} onChange={changeIsVegan}>
                                 <option value = "1">Yes</option>
                                 <option value = "0">No</option>
                             </select><br/>
-                            <label>Caveats</label><br/>
-                            <input type = "text" name = "caveats" id = "caveats"  value={caveats} onChange={changeCaveats}></input><br/>
+                            <label htmlFor='caveats'>Caveats</label><br/>
+                            <input type = "text" name = "caveats" id = "caveats"  value={state.caveats} onChange={handleChange}></input><br/>
                             <button>Edit</button><br/>
                         </form>    
                     </div>
