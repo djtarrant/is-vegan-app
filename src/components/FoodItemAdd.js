@@ -5,14 +5,12 @@ import '../index.css';
 
 
 // functional component
-const FoodItemAdd = ({refreshList}) => {
+const FoodItemAdd = (props) => {
 
-    const refresh = (props) => {
+    const {refreshList, url} = props;
+    const refresh = () => {
         refreshList();
     }
-
-    //TODO - need to put this in a central place and pass via props - but doesn't work in Axios?
-    const url = `http://localhost:5000/foodItem/`;
     const [addFoodShow, setAddFoodShow] = useState(false); //to show the add food form
     //const [name, setName] = useState("");
     //const [caveats, setCaveats] = useState("");
@@ -74,8 +72,8 @@ const FoodItemAdd = ({refreshList}) => {
             const result = await Axios.post(url, params);
             console.log('Getting response...');
             console.log(result);
-            refresh();
-            showForm();
+            refresh(); // refresh the food list
+            showForm();// hide the add form
         } 
         catch(error){
             console.log(error);
