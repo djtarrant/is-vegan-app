@@ -75,6 +75,7 @@ const FoodItemAdd = ({refreshList}) => {
             console.log('Getting response...');
             console.log(result);
             refresh();
+            showForm();
         } 
         catch(error){
             console.log(error);
