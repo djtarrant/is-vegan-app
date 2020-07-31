@@ -56,7 +56,7 @@ const FoodItem = () => {
                                 {
                                     // if data is not empty execute the map function
                                     data !== [] && data.map(food =>
-                                        <FoodRow key={food.id} food={food} url={url} />
+                                        <FoodRow key={food.id} food={food} url={url} refreshList={getData} />
                                     )
                                 }
                                 </tbody>
