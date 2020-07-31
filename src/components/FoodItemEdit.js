@@ -62,9 +62,12 @@ const FoodItemEdit = ({food}) => {
             if(isVegan===1){
                 BooleanIsVegan=true;
                 console.log('here1');
-            }else{
+            }else if(isVegan===0){
                 BooleanIsVegan=false;
                 console.log('here2');
+            }else{
+                BooleanIsVegan="";
+                console.log('here3');
             }
             console.log('Firing:',typeof(BooleanIsVegan),BooleanIsVegan);
             var params = {
