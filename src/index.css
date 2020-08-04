@@ -75,7 +75,7 @@ button.delete{
   margin-right: 1em;
 }
 
-.addFood, .editFood{
+.addFood, .editFood, .addCategory, .editCategory{
   text-align: left;
   background-color: #e4e4e4;
   border: grey 1px solid;
