@@ -43,10 +43,10 @@ const IsVegan = () => {
     
     return (
         <div>
-            <form onSubmit = {onSubmit}>
+            <form onSubmit = {onSubmit} className = "isVegan">
                 <label>Food:</label>
                 <input type = "text" autoComplete="off" onChange = {onChange} value = {query}/>
-                <input type = "submit" value = "Check if it is Vegan" /> 
+                <button className="edit">Is it Vegan?</button>
                 {alert!=="" && <Alert alert={alert} />} 
             </form>
             
