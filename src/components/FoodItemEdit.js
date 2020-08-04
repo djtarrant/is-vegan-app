@@ -99,22 +99,23 @@ const FoodItemEdit = (props) => {
     
     return (
         <div>
-            <button onClick={showForm}>Edit Food</button>
+            <button onClick={showForm}  className="edit">Edit Food</button>
             {editFoodShow && (
-                <div>
+                <div  className="editFood">
+                    <h2>Edit Food</h2>
                     <form onSubmit={editFood}>
-                        <label htmlFor='name'>Name</label><br/>
-                        <input type = "text" name = "name" id = "name" value={state.name} onChange={handleChange}></input><br/>
-                        <label htmlFor='categoryId'>Category</label><br/>
-                        <input type = "text" name = "categoryId" id = "categoryId" value={state.categoryId} onChange={handleChange}></input><br/>
-                        <label htmlFor='isVegan'>Vegan?</label><br/>
+                        <label htmlFor='name'>Name</label>
+                        <input type = "text" name = "name" id = "name" value={state.name} onChange={handleChange}></input>
+                        <label htmlFor='categoryId'>Category</label>
+                        <input type = "text" name = "categoryId" id = "categoryId" value={state.categoryId} onChange={handleChange}></input>
+                        <label htmlFor='isVegan'>Vegan?</label>
                         <select name = "isVegan" id = "isVegan" value={isVegan} onChange={changeIsVegan}>
                             <option value = "1">Yes</option>
                             <option value = "0">No</option>
-                        </select><br/>
-                        <label htmlFor='caveats'>Caveats</label><br/>
-                        <input type = "text" name = "caveats" id = "caveats"  value={state.caveats} onChange={handleChange}></input><br/>
-                        <button>Edit</button><br/>
+                        </select>
+                        <label htmlFor='caveats'>Caveats</label>
+                        <textarea name = "caveats" id = "caveats" onChange={handleChange}>{state.caveats}</textarea>
+                        <button>Edit</button>
                     </form>    
                 </div>
             )}

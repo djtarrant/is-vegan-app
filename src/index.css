@@ -12,6 +12,49 @@ code {
     monospace;
 }
 
+th{
+  background-color: #999999;
+}
+td, th{
+  padding: 1em;
+  border-radius: 4px;
+  border: #555555 1px solid;
+}
+
+label{
+  display: block;
+  margin-top: 0.5em;
+}
+
+input, textarea{
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+textarea{
+  width: 20em;
+}
+button{
+  font-weight: bold;
+  padding: 1em;
+  border-radius: 4px;
+  border: #555555 1px solid;
+  width: 10em;
+  margin-bottom: 0.5em;
+}
+
+button.add{
+  background-color: #13c047;
+}
+
+button.edit{
+  background-color: #c0b413;
+}
+
+button.delete{
+  background-color: #c01313;
+}
+
 .alert{
   color: red;
   font-weight: bold;
@@ -30,4 +73,13 @@ code {
 .nav li{
   list-style: none;
   margin-right: 1em;
+}
+
+.addFood, .editFood{
+  text-align: left;
+  background-color: #e4e4e4;
+  border: grey 1px solid;
+  border-radius: 5px;
+  padding: 1em;
+  margin: 0.5em;
 }

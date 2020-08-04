@@ -82,9 +82,10 @@ const FoodItemAdd = (props) => {
     
     return (
         <div>
-            <button onClick={showForm}>Add Food</button>
+            <button onClick={showForm}  className="add">Add Food</button>
             {addFoodShow && (
-                <div>
+                <div className="addFood">
+                    <h2>Add Food</h2>
                     <form onSubmit={addFood}>
                         <label htmlFor='name'>Name</label>
                         <input type = "text" name = "name" id = "name" value={state.name} onChange={handleChange}></input>
@@ -97,7 +98,7 @@ const FoodItemAdd = (props) => {
                             <option value = "0">No</option>
                         </select>
                         <label htmlFor='caveats'>Caveats</label>
-                        <input type = "text" name = "caveats" id = "caveats"  value={state.caveats} onChange={handleChange}></input>
+                        <textarea name = "caveats" id = "caveats" onChange={handleChange}>{state.caveats}</textarea>
                         <button>Add</button>
                     </form>    
                 </div>

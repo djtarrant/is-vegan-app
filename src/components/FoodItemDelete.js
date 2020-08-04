@@ -29,7 +29,7 @@ const FoodItemDelete = (props) => {
     }
     
     return (
-        <div><button onClick={deleteFood}>Delete Food</button></div>
+        <div><button onClick={deleteFood}  className="delete">Delete Food</button></div>
     )
 }
 
